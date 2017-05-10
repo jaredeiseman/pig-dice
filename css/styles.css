@@ -24,20 +24,30 @@ body {
   border-top: 2px solid black;
 }
 #dice {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -75px;
+  margin-left: -150px;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 175px;
-  width: 175px;
+  height: 300px;
+  width: 300px;
   border: 1px solid black;
   border-radius: 15px;
-  box-shadow: 1px 1px 2px black;
+  box-shadow: 0 0 5px black;
+  background-color: #fefdcd;
 }
 
 #dice h1 {
-  font-size: 100px;
+  font-size: 200px;
   margin: 0;
   padding: 0;
+}
+
+h4 {
+  font-size: 40px;
 }
 
 .jumbotron {
@@ -119,4 +129,74 @@ body {
 }
 .hold:hover {
   opacity: 0.8;
+}
+
+.player1roll {
+  position: fixed;
+  bottom: 110px;
+  left: 60px;
+}
+.player1hold {
+  position: fixed;
+  bottom: 110px;
+  left: 300px;
+}
+
+.player2roll {
+  position: fixed;
+  bottom: 110px;
+  right: 60px;
+}
+.player2hold {
+  position: fixed;
+  bottom: 110px;
+  right: 300px;
+}
+
+.sign {
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  transform: rotate(180deg);
+  top: 240px;
+  z-index: -1;
+}
+.player2totalsign {
+  right: 60px;
+}
+
+.player2total {
+  position: fixed;
+  right: 130px;
+  top: 300px;
+}
+
+.player1totalsign {
+  left: 60px;
+}
+
+.player1total {
+  position: fixed;
+  left: 130px;
+  top: 300px;
+}
+
+.player2runsign {
+  right: 360px;
+}
+
+.player2run {
+  position: fixed;
+  right: 407px;
+  top: 300px;
+}
+
+.player1runsign {
+  left: 360px;
+}
+
+.player1run {
+  position: fixed;
+  left: 415px;
+  top: 300px;
 }
