@@ -9,8 +9,11 @@
     <script src="js/scripts.js"></script>
   </head>
   <body>
-    <div class="jumbotron">
-      <h1>Pig Dice!</h1>
+    <div class="jumbotron clearfix">
+      <h1 class="pull-left">Pig Dice!</h1>
+      <h1 class="recent pull-right">
+
+      </h1>
     </div>
     <div class="container">
       <div class="row">
@@ -57,17 +60,16 @@
           <div class="row">
             <div class="col-md-6">
               <!-- roll button -->
-              <button type="button" class="btn btn-danger roll" name="roll">Roll!</button>
+              <button type="button" class="btn btn-danger roll" name="roll" disabled="true">Roll!</button>
             </div>
             <div class="col-md-6">
               <!-- hold button -->
-              <button type="button" class="btn btn-success hold" name="hold">Hold</button>
+              <button type="button" class="btn btn-success hold" name="hold" disabled="true">Hold</button>
             </div>
           </div>
         </div>
         <!-- insert player 2 here -->
       </div> <!-- main row -->
-
     </div>
   </body>
 </html>
