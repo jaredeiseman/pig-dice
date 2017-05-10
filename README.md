@@ -17,7 +17,6 @@
 | Will have a prototype method to go through the logic of the player taking a turn | ... | ... |
 | Will have a prototype method to roll the dice on the Player class | Player.roll() | Random # 1-6 |
 | Will have a prototype method on player to accumulate current run score | 4,3,5 | 12 |
-| At the end of the turn logic once a player's turn terminates, the run score is added to that player's total score |  |  |
 | The game will track who the active player is | player1 | player2 |
 | The game will actively check at the end of each turn (hold, or roll 1) to see if the active player has won before switching players | ... | ... |
 
