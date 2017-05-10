@@ -143,16 +143,20 @@ $(document).ready(function() {
     if (game.activePlayer === 1) {
       $('#0').find('button').each(function() {
         $(this).prop('disabled', true);
+        $(this).removeClass('spin');
       });
       $('#1').find('button').each(function() {
         $(this).prop('disabled', false);
+        $(this).addClass('spin');
       });
     } else {
       $('#1').find('button').each(function() {
         $(this).prop('disabled', true);
+        $(this).removeClass('spin');
       });
       $('#0').find('button').each(function() {
         $(this).prop('disabled', false);
+        $(this).addClass('spin');
       });
     }
   });
