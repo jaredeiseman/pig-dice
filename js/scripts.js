@@ -1,11 +1,27 @@
 // Business Logic
+// var game = {
+//   players: [{
+//               totalScore = 0;
+//               playerNumber = playerNumber;
+//               runScore = [];
+//             },
+//             {
+//               totalScore = 0;
+//               playerNumber = playerNumber;
+//               runScore = [];
+//             }],
+//   activePlayer: 0,
+//   winningScore: 60
+// }
+
+
 // Constructor for Game
   // properties: players, activePlayers, winningScore
   // this.activePlayer begins at index 0 (player 1) activePlayer is index of player who's turn it is
 function Game () {
   this.players = [];
   this.activePlayer = 0;
-  this.winningScore = 60;
+  this.winningScore = 50;
 }
 
 // Constructor for players
@@ -51,21 +67,6 @@ Game.prototype.checkForWinner = function() {
   }
 }
 
-// var game = {
-//   players: [{
-//               totalScore = 0;
-//               playerNumber = playerNumber;
-//               runScore = [];
-//             },
-//             {
-//               totalScore = 0;
-//               playerNumber = playerNumber;
-//               runScore = [];
-//             }],
-//   activePlayer: 0,
-//   winningScore: 60
-// }
-
 // Player prototype for taking a turn
 // takes in if it's a roll or hold
 Player.prototype.turn = function(game, action) {
@@ -89,7 +90,8 @@ Player.prototype.turn = function(game, action) {
     var totalRunScore = this.runScore.accumulateArray();
     this.totalScore += totalRunScore;
     this.runScore = [];
-    if (game.checkForWinner()) {
+    var potentialWinner = game.checkForWinner();
+    if (potentialWinner === 0 || potentialWinner === 1) {
       return game.checkForWinner();
     }
   }
@@ -107,7 +109,10 @@ $(document).ready(function() {
     //when the button is clicked, run the players turn
     var action = $(this).prop("name");
     var turnResult = game.players[game.activePlayer].turn(game, action);
-    $('.recent').text(game.players[game.activePlayer].recentRoll);
+    $('#dice').effect("shake", { times: 5 }, 1000);
+    setTimeout(function() {
+      $('.recent').text(game.players[game.activePlayer].recentRoll);
+    }, 1000);
     //if the hold button was the one clicked
     if (action === "hold") {
       //update the total score on the page
@@ -116,6 +121,17 @@ $(document).ready(function() {
       //if winner, display to page some how
       //switch the active player
       game.switchActive();
+      if (turnResult === 0) {
+        alert('Player 1 wins!');
+        //
+        //
+        // TO-DO: MAKE A WIN SCREEN
+        //
+        //
+        //
+      } else if (turnResult === 1) {
+        alert('Player 2 wins!');
+      }
     } else {
       //if it was the roll button that was clicked
       $('#' + game.activePlayer).find('h4.run-score').text(game.players[game.activePlayer].runScore.accumulateArray());

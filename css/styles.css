@@ -1,0 +1,45 @@
+html, body {
+  height: 100%;
+}
+body {
+  background-image: url(../img/upperbg.jpg);
+  background-size: 2600px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: right 0 bottom 80px;
+}
+.ground {
+  background-image: url(../img/bg.png);
+  height: 80px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  border-top: 2px solid black;
+}
+#dice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 175px;
+  width: 175px;
+  border: 1px solid black;
+  border-radius: 15px;
+  box-shadow: 1px 1px 2px black;
+}
+
+#dice h1 {
+  font-size: 100px;
+  margin: 0;
+  padding: 0;
+}
+
+.jumbotron {
+  background-color: #cee7d1;
+  padding: 20px 50px;
+  border-bottom: 2px solid black;
+  box-shadow: 0 0 2px black;
+}
+
+.jumbotron img:last-child {
+  height: 200px;
+}
