@@ -71,9 +71,9 @@ Game.prototype.checkForWinner = function() {
 // takes in if it's a roll or hold
 Player.prototype.turn = function(game, action) {
   // if roll it rolls
+  var rollValue = this.roll();
+  this.recentRoll = rollValue;
   if (action === "roll") {
-    var rollValue = this.roll();
-    this.recentRoll = rollValue;
     // if 1, set run to 0 and end the turn switching the active player
     if (rollValue === 1) {
       //empty the runScore array
@@ -109,13 +109,12 @@ $(document).ready(function() {
     //when the button is clicked, run the players turn
     var action = $(this).prop("name");
     var turnResult = game.players[game.activePlayer].turn(game, action);
-    $('#dice').effect("shake", { times: 5 }, 1000);
-    setTimeout(function() {
-      $('.recent').text(game.players[game.activePlayer].recentRoll);
-    }, 1000);
+    $('#dice').effect("shake", { times: 5 }, 300);
+    $('.recent').text(game.players[game.activePlayer].recentRoll);
     //if the hold button was the one clicked
     if (action === "hold") {
       //update the total score on the page
+      $('#' + game.activePlayer).find('h4.run-score').text("0");
       $('#' + game.activePlayer).find('h4.total').text(game.players[game.activePlayer].totalScore);
       //check the retuned value from the turn for if it was a winner
       //if winner, display to page some how
