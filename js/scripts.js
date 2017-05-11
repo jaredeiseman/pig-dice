@@ -21,7 +21,7 @@
 function Game () {
   this.players = [];
   this.activePlayer = 0;
-  this.winningScore = 10;
+  this.winningScore = 100;
 }
 
 // Constructor for players
