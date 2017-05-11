@@ -21,7 +21,7 @@
 function Game () {
   this.players = [];
   this.activePlayer = 0;
-  this.winningScore = 50;
+  this.winningScore = 10;
 }
 
 // Constructor for players
@@ -71,9 +71,9 @@ Game.prototype.checkForWinner = function() {
 // takes in if it's a roll or hold
 Player.prototype.turn = function(game, action) {
   // if roll it rolls
-  var rollValue = this.roll();
-  this.recentRoll = rollValue;
   if (action === "roll") {
+    var rollValue = this.roll();
+    this.recentRoll = rollValue;
     // if 1, set run to 0 and end the turn switching the active player
     if (rollValue === 1) {
       //empty the runScore array
@@ -103,7 +103,6 @@ $(document).ready(function() {
   var game = new Game();
   game.players.push(new Player(1));
   game.players.push(new Player(2));
-
   //click event for roll and hold button
   $('button').click(function() {
     //when the button is clicked, run the players turn
@@ -121,15 +120,13 @@ $(document).ready(function() {
       //switch the active player
       game.switchActive();
       if (turnResult === 0) {
-        alert('Player 1 wins!');
-        //
-        //
-        // TO-DO: MAKE A WIN SCREEN
-        //
-        //
-        //
+        $('#game').hide();
+        $('.winner').text("1");
+        $('#win-screen').fadeIn('slow');
       } else if (turnResult === 1) {
-        alert('Player 2 wins!');
+        $('#game').hide();
+        $('.winner').text("2");
+        $('#win-screen').fadeIn('slow');
       }
     } else {
       //if it was the roll button that was clicked
